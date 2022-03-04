@@ -26,5 +26,13 @@ TODO
 
 ## Project Structure
 
-TODO
-
+    .
+    ├── ...
+    ├── config/           # Configurations and environment file
+    ├── constants/        # Constants
+    ├── controller/       # Request handlers
+    │   ├── api/          # API request handlers
+    │   └── middleware/   # Middleware
+    ├── models/           # Database and data transfer models
+    ├── router/           # Router
+    └── services/         # External services

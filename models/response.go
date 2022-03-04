@@ -1,4 +1,4 @@
-package datatransfers
+package models
 
 type Response struct {
 	Code  int         `json:"code,omitempty"`
