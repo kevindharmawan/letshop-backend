@@ -18,7 +18,7 @@ func InitializeRouter() (router *gin.Engine) {
 	{
 		profile := apiRoute.Group("/profile")
 		{
-			profile.GET("/get", api.GetProfile)
+			profile.GET("/get", api.GetMyProfile)
 			profile.GET("/get/:id", api.GetProfileById)
 			profile.POST("/create", api.CreateProfile)
 			profile.PATCH("/update", api.UpdateProfile)

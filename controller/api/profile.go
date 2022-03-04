@@ -11,7 +11,7 @@ func CreateProfile(c *gin.Context)
 func UpdateProfile(c *gin.Context)
 
 // TODO: Implement
-func GetProfile(c *gin.Context)
+func GetMyProfile(c *gin.Context)
 
 // TODO: Implement
 func GetProfileById(c *gin.Context)
