@@ -15,3 +15,6 @@ func GetRecommendedCategories(c *gin.Context)
 
 // TODO: Implement
 func GetCategoryById(c *gin.Context)
+
+// TODO: Implement
+func DeleteCategory(c *gin.Context)
