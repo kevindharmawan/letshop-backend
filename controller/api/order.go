@@ -5,19 +5,19 @@ import (
 )
 
 // TODO: Implement
-func CreateOrder(c *gin.Context)
+func CreateOrder(c *gin.Context) { return }
 
 // TODO: Implement
-func UpdateOrder(c *gin.Context)
+func UpdateOrder(c *gin.Context) { return }
 
 // TODO: Implement
-func GetMyOrders(c *gin.Context)
+func GetMyOrders(c *gin.Context) { return }
 
 // TODO: Implement
-func GetOrderById(c *gin.Context)
+func GetOrderById(c *gin.Context) { return }
 
 // TODO: Implement
-func CompleteOrder(c *gin.Context)
+func CompleteOrder(c *gin.Context) { return }
 
 // TODO: Implement
-func CancelOrder(c *gin.Context)
+func CancelOrder(c *gin.Context) { return }

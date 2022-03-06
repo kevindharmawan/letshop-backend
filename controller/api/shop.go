@@ -5,16 +5,16 @@ import (
 )
 
 // TODO: Implement
-func CreateShop(c *gin.Context)
+func CreateShop(c *gin.Context) { return }
 
 // TODO: Implement
-func UpdateShop(c *gin.Context)
+func UpdateShop(c *gin.Context) { return }
 
 // TODO: Implement
-func GetMyShop(c *gin.Context)
+func GetMyShop(c *gin.Context) { return }
 
 // TODO: Implement
-func GetShopById(c *gin.Context)
+func GetShopById(c *gin.Context) { return }
 
 // TODO: Implement
-func DeleteShop(c *gin.Context)
+func DeleteShop(c *gin.Context) { return }

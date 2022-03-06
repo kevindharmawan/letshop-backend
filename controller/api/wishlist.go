@@ -5,10 +5,10 @@ import (
 )
 
 // TODO: Implement
-func CreateWishlist(c *gin.Context)
+func CreateWishlist(c *gin.Context) { return }
 
 // TODO: Implement
-func GetMyWishlists(c *gin.Context)
+func GetMyWishlists(c *gin.Context) { return }
 
 // TODO: Implement
-func DeleteWishlist(c *gin.Context)
+func DeleteWishlist(c *gin.Context) { return }

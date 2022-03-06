@@ -19,7 +19,6 @@ func InitializeRouter() (router *gin.Engine) {
 		profile := apiRoute.Group("/profile")
 		{
 			profile.GET("/get", api.GetMyProfile)
-			profile.GET("/get/:id", api.GetProfileById)
 			profile.POST("/create", api.CreateProfile)
 			profile.PATCH("/update", api.UpdateProfile)
 			profile.DELETE("/delete", api.DeleteProfile)
@@ -37,8 +36,8 @@ func InitializeRouter() (router *gin.Engine) {
 			product.GET("/get", api.GetMyProducts)
 			product.GET("/get/recommended", api.GetRecommendedProducts)
 			product.GET("/get/:id", api.GetProductById)
-			product.GET("/get/:category_id", api.GetProductsByCategory)
-			product.GET("/get/:shop_id", api.GetProductsByShop)
+			// product.GET("/get/:category_id", api.GetProductsByCategory)
+			// product.GET("/get/:shop_id", api.GetProductsByShop)
 			product.POST("/create", api.CreateProduct)
 			product.PATCH("/update", api.UpdateProduct)
 			product.DELETE("/delete", api.DeleteProduct)

@@ -5,13 +5,13 @@ import (
 )
 
 // TODO: Implement
-func CreateCart(c *gin.Context)
+func CreateCart(c *gin.Context) { return }
 
 // TODO: Implement
-func UpdateCart(c *gin.Context)
+func UpdateCart(c *gin.Context) { return }
 
 // TODO: Implement
-func GetMyCarts(c *gin.Context)
+func GetMyCarts(c *gin.Context) { return }
 
 // TODO: Implement
-func DeleteCart(c *gin.Context)
+func DeleteCart(c *gin.Context) { return }

@@ -7,6 +7,7 @@ import (
 	"gorm.io/gorm"
 
 	"letshop-backend/config"
+	"letshop-backend/models"
 )
 
 var Database *gorm.DB
@@ -23,7 +24,7 @@ func InitializeDatabase() {
 	}
 
 	// TODO: Auto migrate models
-	// db.AutoMigrate(&models.Profile{})
+	db.AutoMigrate(&models.Profile{})
 
 	Database = db
 }

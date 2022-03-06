@@ -5,25 +5,25 @@ import (
 )
 
 // TODO: Implement
-func CreateProduct(c *gin.Context)
+func CreateProduct(c *gin.Context) { return }
 
 // TODO: Implement
-func UpdateProduct(c *gin.Context)
+func UpdateProduct(c *gin.Context) { return }
 
 // TODO: Implement
-func GetMyProducts(c *gin.Context)
+func GetMyProducts(c *gin.Context) { return }
 
 // TODO: Implement
-func GetRecommendedProducts(c *gin.Context)
+func GetRecommendedProducts(c *gin.Context) { return }
 
 // TODO: Implement
-func GetProductById(c *gin.Context)
+func GetProductById(c *gin.Context) { return }
 
 // TODO: Implement
-func GetProductsByCategory(c *gin.Context)
+func GetProductsByCategory(c *gin.Context) { return }
 
 // TODO: Implement
-func GetProductsByShop(c *gin.Context)
+func GetProductsByShop(c *gin.Context) { return }
 
 // TODO: Implement
-func DeleteProduct(c *gin.Context)
+func DeleteProduct(c *gin.Context) { return }
