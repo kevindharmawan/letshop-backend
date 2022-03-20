@@ -23,6 +23,7 @@ type Config struct {
 	DBDatabase string
 	DBUsername string
 	DBPassword string
+	SSLMode    string
 }
 
 func InitializeConfig() {
@@ -39,6 +40,12 @@ func InitializeConfig() {
 	AppConfig.Port = viper.GetInt("PORT")
 	AppConfig.Environment = viper.GetString("ENVIRONMENT")
 	AppConfig.Debug = viper.GetBool("DEBUG")
+
+	if AppConfig.Environment == "dev" {
+		AppConfig.SSLMode = "disable"
+	} else {
+		AppConfig.SSLMode = "require"
+	}
 
 	// Database environment
 	dbUrl := viper.GetString("DATABASE_URL")
