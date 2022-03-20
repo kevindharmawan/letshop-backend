@@ -2,6 +2,7 @@ package config
 
 import (
 	"fmt"
+	"log"
 	"net"
 	nurl "net/url"
 	"strconv"
@@ -41,6 +42,7 @@ func InitializeConfig() {
 
 	// Database environment
 	dbUrl := viper.GetString("DATABASE_URL")
+	log.Println("Database URL: " + dbUrl)
 
 	if dbUrl != "" {
 		dbInfo, err := ParseURL(dbUrl)
