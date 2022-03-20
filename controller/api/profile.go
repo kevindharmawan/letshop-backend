@@ -10,9 +10,10 @@ import (
 	"letshop-backend/services"
 )
 
-const notFoundMessage = "profile not found"
-const updateErrorMessage = "error when updating profile"
+const profileNotFoundMessage = "profile not found"
+const profileUpdateErrorMessage = "error when updating profile"
 
+// TODO: Check if already exists
 func CreateProfile(c *gin.Context) {
 	db := services.Database
 
@@ -26,7 +27,7 @@ func CreateProfile(c *gin.Context) {
 
 	// TODO: Implement image
 	profile := models.Profile{
-		UserID:    uuid,
+		ID:        uuid,
 		Name:      input.Name,
 		BirthDate: input.BirthDate,
 		ImageUrl:  "",
@@ -49,8 +50,8 @@ func UpdateProfile(c *gin.Context) {
 	}
 
 	var profile models.Profile
-	if result := db.Model(&models.Profile{}).Where("user_id = ?", uuid).First(&profile); result.Error != nil {
-		c.JSON(http.StatusNotFound, models.Response{Error: notFoundMessage})
+	if result := db.First(&profile, "id = ?", uuid); result.Error != nil {
+		c.JSON(http.StatusNotFound, models.Response{Error: profileNotFoundMessage})
 		return
 	}
 
@@ -59,7 +60,7 @@ func UpdateProfile(c *gin.Context) {
 		BirthDate: input.BirthDate,
 		Gender:    input.Gender,
 	}); result.Error != nil {
-		c.JSON(http.StatusNotFound, models.Response{Error: updateErrorMessage})
+		c.JSON(http.StatusNotFound, models.Response{Error: profileUpdateErrorMessage})
 		return
 	}
 
@@ -75,8 +76,8 @@ func GetMyProfile(c *gin.Context) {
 	}
 
 	var profile models.Profile
-	if result := db.Model(&models.Profile{}).Where("user_id = ?", uuid).First(&profile); result.Error != nil {
-		c.JSON(http.StatusNotFound, models.Response{Error: notFoundMessage})
+	if result := db.First(&profile, "id = ?", uuid); result.Error != nil {
+		c.JSON(http.StatusNotFound, models.Response{Error: profileNotFoundMessage})
 		return
 	}
 
@@ -89,8 +90,8 @@ func DeleteProfile(c *gin.Context) {
 
 	uuid := c.GetString(constants.UserIDKey)
 
-	if result := db.Delete(&models.Profile{}, "user_id = ?", uuid); result.Error != nil {
-		c.JSON(http.StatusNotFound, models.Response{Error: notFoundMessage})
+	if result := db.Delete(&models.Profile{}, "id = ?", uuid); result.Error != nil {
+		c.JSON(http.StatusNotFound, models.Response{Error: profileNotFoundMessage})
 		return
 	}
 

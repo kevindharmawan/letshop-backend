@@ -33,14 +33,13 @@ func InitializeRouter() (router *gin.Engine) {
 		}
 		product := apiRoute.Group("/product")
 		{
-			product.GET("/get", api.GetMyProducts)
-			product.GET("/get/recommended", api.GetRecommendedProducts)
+			product.GET("/get", api.GetRecommendedProducts)
 			product.GET("/get/:id", api.GetProductById)
 			// product.GET("/get/:category_id", api.GetProductsByCategory)
 			// product.GET("/get/:shop_id", api.GetProductsByShop)
 			product.POST("/create", api.CreateProduct)
 			product.PATCH("/update", api.UpdateProduct)
-			product.DELETE("/delete", api.DeleteProduct)
+			product.DELETE("/delete/:id", api.DeleteProduct)
 		}
 		category := apiRoute.Group("/category")
 		{

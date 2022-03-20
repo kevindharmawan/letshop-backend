@@ -40,7 +40,7 @@ func InitializeConfig() {
 	AppConfig.Debug = viper.GetBool("DEBUG")
 
 	// Database environment
-	dbUrl := viper.GetString("DB_URL")
+	dbUrl := viper.GetString("DATABASE_URL")
 
 	if dbUrl != "" {
 		dbInfo, err := ParseURL(dbUrl)
@@ -58,11 +58,11 @@ func InitializeConfig() {
 		}
 	}
 
-	AppConfig.DBUsername = viper.GetString("DB_USERNAME")
-	AppConfig.DBPassword = viper.GetString("DB_PASSWORD")
-	AppConfig.DBHost = viper.GetString("DB_HOST")
-	AppConfig.DBPort = viper.GetInt("DB_PORT")
-	AppConfig.DBDatabase = viper.GetString("DB_DATABASE")
+	AppConfig.DBUsername = viper.GetString("DATABASE_USERNAME")
+	AppConfig.DBPassword = viper.GetString("DATABASE_PASSWORD")
+	AppConfig.DBHost = viper.GetString("DATABASE_HOST")
+	AppConfig.DBPort = viper.GetInt("DATABASE_PORT")
+	AppConfig.DBDatabase = viper.GetString("DATABASE_DATABASE")
 }
 
 // Example:

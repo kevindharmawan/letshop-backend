@@ -23,8 +23,12 @@ func InitializeDatabase() {
 		panic("[ERROR] Failed to initialize database")
 	}
 
-	// TODO: Auto migrate models
-	db.AutoMigrate(&models.Profile{})
+	db.AutoMigrate(
+		&models.Profile{},
+		&models.Shop{},
+		&models.Product{},
+		&models.ProductImage{},
+	)
 
 	Database = db
 }
