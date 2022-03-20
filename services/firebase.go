@@ -2,6 +2,9 @@ package services
 
 import (
 	"context"
+	"errors"
+	"fmt"
+	"os"
 	"path/filepath"
 
 	firebase "firebase.google.com/go"
@@ -17,7 +20,14 @@ func InitializeFirebase() {
 		panic("[ERROR] Unable to load firebaseServiceAccountKey.json")
 	}
 
-	opt := option.WithCredentialsFile(serviceAccountKeyPath)
+	var opt option.ClientOption
+
+	if _, err := os.Stat(serviceAccountKeyPath); errors.Is(err, os.ErrNotExist) {
+		fmt.Println("firebaseServiceAccountKey.json doesn't exists, use environment instead")
+		opt = option.WithCredentialsJSON([]byte(os.Getenv("FIREBASE_CREDENTIALS")))
+	} else {
+		opt = option.WithCredentialsFile(serviceAccountKeyPath)
+	}
 
 	app, err := firebase.NewApp(context.Background(), nil, opt)
 	if err != nil {
