@@ -12,7 +12,7 @@ func InitializeRouter() (router *gin.Engine) {
 
 	apiRoute := router.Group("/api")
 	apiRoute.Use(
-		// middleware.AuthMiddleware,
+		middleware.AuthMiddleware,
 		middleware.CorsMiddleware,
 	)
 	{
