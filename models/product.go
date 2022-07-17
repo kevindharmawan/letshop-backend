@@ -10,30 +10,31 @@ type Product struct {
 	Name       string         `json:"name" gorm:"not null"`
 	Desc       string         `json:"description"`
 	ShopID     uint           `json:"-" gorm:"not null"`
-	CategoryID uint           `json:"-"`
-	Price      int            `json:"price" gorm:"not null"`
+	Price      float64        `json:"price" gorm:"not null"`
 	Stock      int            `json:"stock"`
 	Discount   int            `json:"discount"`
 	CreatedAt  time.Time      `json:"created_at" gorm:"not null;autoCreateTime"`
 	UpdatedAt  time.Time      `json:"updated_at" gorm:"not null;autoUpdateTime"`
 	Thumbnail  string         `json:"image_url"`
+	CategoryID uint           `json:"-"`
+	Category   Category       `json:"category" gorm:"foreignKey:CategoryID"`
 	Images     []ProductImage `json:"images" gorm:"foreignKey:ProductID"`
 }
 
 type ProductCreate struct {
-	Name     string `json:"name" binding:"required"`
-	Desc     string `json:"description" binding:"-"`
-	Price    int    `json:"price" binding:"required"`
-	Stock    int    `json:"stock" binding:"required,gte=-1"`
-	Discount int    `json:"discount" binding:"-"`
+	Name     string  `json:"name" binding:"required"`
+	Desc     string  `json:"description" binding:"-"`
+	Price    float64 `json:"price" binding:"required"`
+	Stock    int     `json:"stock" binding:"required,gte=-1"`
+	Discount int     `json:"discount" binding:"-"`
 }
 
 type ProductUpdate struct {
-	Name     string `json:"name" binding:"-"`
-	Desc     string `json:"description" binding:"-"`
-	Price    int    `json:"price" binding:"-"`
-	Stock    int    `json:"stock" binding:"required,gte=-1"`
-	Discount int    `json:"discount" binding:"-"`
+	Name     string  `json:"name" binding:"-"`
+	Desc     string  `json:"description" binding:"-"`
+	Price    float64 `json:"price" binding:"-"`
+	Stock    int     `json:"stock" binding:"gte=-1"`
+	Discount int     `json:"discount" binding:"-"`
 }
 
 type ProductImage struct {
@@ -42,5 +43,3 @@ type ProductImage struct {
 	Sequence  int    `json:"sequence"`
 	ImageUrl  string `json:"image_url" gorm:"not null"`
 }
-
-// Shipping address

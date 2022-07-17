@@ -18,6 +18,8 @@ func CreateShop(c *gin.Context) {
 
 	uuid := c.GetString(constants.UserIDKey)
 
+	// TODO: Check if user already have shop
+
 	var input models.ShopCreate
 	if err := c.ShouldBindJSON(&input); err != nil {
 		c.JSON(http.StatusBadRequest, models.Response{Error: err.Error()})
